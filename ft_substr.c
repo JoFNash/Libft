@@ -6,7 +6,7 @@
 /*   By: hsybassi <hsybassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 21:17:32 by hsybassi          #+#    #+#             */
-/*   Updated: 2021/10/04 21:30:44 by hsybassi         ###   ########.fr       */
+/*   Updated: 2021/10/04 21:33:43 by hsybassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,4 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		substr[j++] = s[i++];
 	substr[i] = '\0';
 	return (substr);
-}	
+}
