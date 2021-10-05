@@ -13,12 +13,16 @@ char	**ft_split(char const *s, char c)
 	count_c = 0;
 	if (!s)
 		return (NULL);
-	while (s[i] != '\0')
+	while (s[i] != '\0' && i < ft_strlen(s) - 1)
 	{
-		if (s[i] == c)
+		if (s[i] == c && s[i + 1] != 'c')
+		{
 			++count_c;
+		}
+		
 		i++;
 	}
+	printf("%d", count_c);
 	
 	return (NULL);
 }
