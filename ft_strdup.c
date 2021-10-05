@@ -16,7 +16,9 @@ char	*ft_strdup(const char *s)
 	while (len--)
 	{
 		*copy = *s;
+		copy++;
 		s++;
 	}
+	*copy = '\0';
 	return (copy);
 }
