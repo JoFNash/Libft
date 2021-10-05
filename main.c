@@ -6,7 +6,7 @@
 /*   By: hsybassi <hsybassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 21:21:17 by hsybassi          #+#    #+#             */
-/*   Updated: 2021/10/04 22:20:30 by hsybassi         ###   ########.fr       */
+/*   Updated: 2021/10/05 17:58:38 by hsybassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,19 @@
 #include <stdio.h>
 int main(void)
 {
-	//char str[30] = "Hello world!";
-	//char * substr;
-	//substr = ft_substr(str, 3, 7);
+	char 	str1[30] = "1 234 56789  ";
+	//char 	set[30] = "12 33 294";
+	char c = ' ';
+	//char 	*substr;
+	//substr = ft_substr(str, 0, 100);
 	//printf("%s   %s\n", str, substr);
-	printf("%s\n", ft_strjoin("21414124", NULL));
-	printf("%s\n", ft_strjoin("21414124", "hello"));
-	printf("%s\n", ft_strjoin("21414124", "y"));
-	printf("%s\n", ft_strjoin("21414124", ""));
+	//printf("%s\n", ft_strjoin("123456789", NULL));
+	//printf("%s\n", ft_strjoin("123456789", "hello"));
+	//printf("%s\n", ft_strjoin("123456789", "y"));
+	//printf("%s\n", ft_strjoin("123456789", ""));
+	//printf("%s", ft_strtrim(str1, set));
+
+	
+	ft_split(str1, c);
 	
 }
