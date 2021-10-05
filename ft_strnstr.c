@@ -2,8 +2,8 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	char *pb;
-	char *pl;
+	char	*pb;
+	char	*pl;
 
 	while (*big)
 	{
