@@ -2,5 +2,18 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	return(ft_memmove(dest, src, n)); // не втыкаю, в чем смысл сей функции если есть ft_memmove? можно ли ее написать так?
+	unsigned char*			copy_dest;
+	const unsigned char*	copy_src;
+	unsigned int			i;
+
+	i = 0;
+	copy_dest = dest;
+	copy_src = src;
+	while (n--)
+	{
+		*copy_dest = *copy_src;
+		copy_src++;
+		copy_dest++;
+	}
+	return (dest);
 }
