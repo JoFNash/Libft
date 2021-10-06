@@ -19,7 +19,6 @@ char	**ft_split(char const *s, char c)
 		{
 			++count_c;
 		}
-		
 		i++;
 	}
 	printf("%d", count_c);

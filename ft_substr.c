@@ -12,6 +12,8 @@
 
 #include "libft.h"
 
+// "qwerty", 2, 1102903801289 -> erty
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;
@@ -23,10 +25,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	size = ft_strlen(s); 
 	if (start > size)
-		//substr = (char *)malloc(sizeof(char) * (len + 1));
-	if (len > size)
 		return (NULL);
-	substr = (char *)malloc(sizeof(char) * (len + 1));
+	if (len > size)
+		substr = (char *)malloc(sizeof(char) * (size + 1));
+	else
+		substr = (char *)malloc(sizeof(char) * (len + 1));
 	if (!substr)
 		return (NULL);
 	i = start;
