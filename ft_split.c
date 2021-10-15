@@ -1,27 +1,113 @@
 #include "libft.h"
 
-char	**ft_split(char const *s, char c)
+// с может = '\0'?
+
+int get_num_words(char const *s, char c)
 {
-	//char	**mass;
-	size_t i;
-	int count_c;
-	int max_len;
+	size_t	i;
+	int		words;
 
-
+	words = 0;
 	i = 0;
-	max_len = 0;
-	count_c = 0;
-	if (!s)
-		return (NULL);
-	while (s[i] != '\0' && i < ft_strlen(s) - 1)
+	if (s[0] != c)
+			++words;
+	while (s[i + 1] != '\0' && i < ft_strlen(s) - 1)
 	{
-		if (s[i] == c && s[i + 1] != 'c')
+		if (s[i] == c && s[i + 1] != c)
 		{
-			++count_c;
+			++words;
 		}
 		i++;
 	}
-	printf("%d", count_c);
-	
-	return (NULL);
+	return (words);
+}
+
+void alloc_mem(char **mass, int length, size_t *k)
+{
+	mass[*k] = (char *)malloc(sizeof(char) * (length + 1));
+	if (!mass[*k])
+	{
+		while ((*k)--)
+		{
+			free(mass[*k]);
+		}
+		free(mass);
+	}
+	(*k)++;
+}
+
+void get_mem_for_words(char const *s, char c, char **mass)
+{
+	int 	length;
+	size_t	i;
+	size_t 	k;
+
+	k = 0;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		length = 0;
+		if (s[i] == c)
+		{
+			i++;
+		}
+		else if (s[i] != c)
+		{
+			if (s[i] == '\0')
+				break;
+			while (s[i] != c)
+			{
+				length++;
+				i++;
+			}
+		}
+		if (length != 0)
+			alloc_mem(mass, length, &k);
+	}
+}
+
+char	**get_mass(char const *s, char c, char **mass)
+{
+	size_t	i;
+	size_t	j;
+	size_t 	k;
+
+	i = 0;
+	j = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] == c)
+			i++;
+		else if (s[i] != c)
+		{
+			if (s[i] == '\0')
+				break;
+			k = 0;
+			while (s[i] != c)
+			{
+				mass[j][k] = s[i];
+				i++;
+				k++;
+			}
+			mass[j][k] = '\0';
+			j++;
+		}
+	}
+	return (mass);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**mass;
+	int		words;
+
+	if (!s)
+		return (NULL);
+	words = get_num_words(s, c);
+	mass = (char **)malloc(sizeof(char *) * words);
+	if (!mass)
+		return (NULL);
+	get_mem_for_words(s, c, mass);
+	mass = get_mass(s, c, mass);
+	return (mass);
 }

@@ -12,21 +12,32 @@
 
 #include "libft.h"
 #include <stdio.h>
+
+void foo(unsigned int i, char *c)
+{
+	if (i % 2) // если нечетная
+		*c = *c + 32;
+}
+
 int main(void)
 {
-	char 	str1[30] = "     1 234 56789  ";
-	//char 	set[30] = "12 33 294";
-	char c = ' ';
-	//char 	*substr;
-	//substr = ft_substr(str, 0, 100);
-	//printf("%s   %s\n", str, substr);
-	//printf("%s\n", ft_strjoin("123456789", NULL));
-	//printf("%s\n", ft_strjoin("123456789", "hello"));
-	//printf("%s\n", ft_strjoin("123456789", "y"));
-	//printf("%s\n", ft_strjoin("123456789", ""));
-	//printf("%s", ft_strtrim(str1, set));
-	//char * p = ft_calloc(5, 3);
-	//printf("%s %lu", p, sizeof(p));
-	ft_split(str1, c);
-	
+	//char string[100] = "QWERTY!";
+	// ft_striteri(string, &foo);
+	// printf("%s", string);
+	//ft_putstr_fd(NULL, 2);
+	//ft_putendl_fd("Hello", 1);
+	//ft_putendl_fd("Hello", 1);
+	ft_putnbr_fd(1234, 1);
+	printf("\n");
+	ft_putnbr_fd(-1234, 1);
+	printf("\n");
+	ft_putnbr_fd(0, 1);
+	printf("\n");
+	ft_putnbr_fd(-0, 1);
+	printf("\n");
+	ft_putnbr_fd(687989, 1);
+	printf("\n");
+	ft_putnbr_fd(-834783, 1);
+	printf("\n");
+	printf("%s", ft_itoa(0));
 }
