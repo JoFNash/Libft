@@ -1,6 +1,6 @@
 #include "libft.h"
 
-int		len_num(int num)
+static int		len_num(int num)
 {
 	int		len;
 
@@ -13,7 +13,7 @@ int		len_num(int num)
 	return (len);
 }
 
-void	check_sign(int *num, int *len, int *sign)
+static void	check_sign(int *num, int *len, int *sign)
 {
 	if ((*num) < 0)
 	{
