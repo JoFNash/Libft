@@ -2,11 +2,13 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-    unsigned char*			copy_dest;
-	const unsigned char*	copy_src;
-	unsigned char			array[BUFSIZ]; // тут можно задать массив так...? 
+    unsigned char			*copy_dest;
+	const unsigned char		*copy_src;
+	unsigned char			array[BUFSIZ]; // вообще бред какой-то, надо по-другому
 	unsigned int			i;
 
+	if (!dest || !src)
+		return (NULL);
 	i = 0;
 	copy_dest = dest;
 	copy_src = src;

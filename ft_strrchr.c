@@ -4,7 +4,8 @@ char	*ft_strrchr(const char *s, int c)
 {
 	char	*tmp;
 
-	tmp = NULL;
+	if (!s)
+		return (NULL);
 	while (*s != '\0')
 	{
 		if (*s == c)

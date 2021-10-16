@@ -12,32 +12,57 @@
 
 #include "libft.h"
 #include <stdio.h>
+#include <string.h>
 
-void foo(unsigned int i, char *c)
-{
-	if (i % 2) // если нечетная
-		*c = *c + 32;
-}
 
 int main(void)
 {
-	//char string[100] = "QWERTY!";
-	// ft_striteri(string, &foo);
-	// printf("%s", string);
-	//ft_putstr_fd(NULL, 2);
-	//ft_putendl_fd("Hello", 1);
-	//ft_putendl_fd("Hello", 1);
-	ft_putnbr_fd(1234, 1);
-	printf("\n");
-	ft_putnbr_fd(-1234, 1);
-	printf("\n");
-	ft_putnbr_fd(0, 1);
-	printf("\n");
-	ft_putnbr_fd(-0, 1);
-	printf("\n");
-	ft_putnbr_fd(687989, 1);
-	printf("\n");
-	ft_putnbr_fd(-834783, 1);
-	printf("\n");
-	printf("%s", ft_itoa(0));
+	//char string[100] = "destination";
+	char string1[100] = "-12345";
+	printf("%d ", ft_atoi(string1));
+	printf("%d\n", atoi(string1));
+
+	strcpy(string1, "0\0");
+	printf("%d ", ft_atoi(string1));
+	printf("%d\n", atoi(string1));
+
+	strcpy(string1, "  -30\0");
+	printf("%d ", ft_atoi(string1));
+	printf("%d\n", atoi(string1));
+
+	strcpy(string1, "  - 70\0");
+	printf("%d ", ft_atoi(string1));
+	printf("%d\n", atoi(string1));
+
+	strcpy(string1, "  ++90\0");
+	printf("%d ", ft_atoi(string1));
+	printf("%d\n", atoi(string1));
+
+	strcpy(string1, "  --30\0");
+	printf("%d ", ft_atoi(string1));
+	printf("%d\n", atoi(string1));
+
+	strcpy(string1, "  +-30a1\0");
+	printf("%d ", ft_atoi(string1));
+	printf("%d\n", atoi(string1));
+
+	strcpy(string1, "  -309a1\0");
+	printf("%d ", ft_atoi(string1));
+	printf("%d\n", atoi(string1));
+
+	strcpy(string1, "2147483647\0");
+	printf("%d ", ft_atoi(string1));
+	printf("%d\n", atoi(string1));
+
+	strcpy(string1, "-2147483647\0");
+	printf("%d ", ft_atoi(string1));
+	printf("%d\n", atoi(string1));
+
+	strcpy(string1, "-2147483648\0");
+	printf("%d ", ft_atoi(string1));
+	printf("%d\n", atoi(string1));
+
+	strcpy(string1, "2147483648\0");
+	printf("%d ", ft_atoi(string1));
+	printf("%d\n", atoi(string1));
 }

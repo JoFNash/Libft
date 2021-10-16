@@ -5,6 +5,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	char	*pb;
 	char	*pl;
 
+	if (!big || !little)
+		return (NULL);
 	while (*big)
 	{
 		if (*big == *little)
