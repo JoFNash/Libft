@@ -1,6 +1,6 @@
 #include "libft.h"
 
-void 	check_sym(char const *string, char const *set, int *flag, int len)
+static void 	check_sym(char const *string, char const *set, int *flag, int len)
 {
 	size_t	i;
 
