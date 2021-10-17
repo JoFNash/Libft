@@ -14,55 +14,25 @@
 #include <stdio.h>
 #include <string.h>
 
-
-int main(void)
+void    ft_print_result(int n)
 {
-	//char string[100] = "destination";
-	char string1[100] = "-12345";
-	printf("%d ", ft_atoi(string1));
-	printf("%d\n", atoi(string1));
+    if (n > 0)
+        write(1, "1", 1);
+    else if (n < 0)
+        write(1, "-1", 2);
+    else
+        write(1, "0", 1);
+}
 
-	strcpy(string1, "0\0");
-	printf("%d ", ft_atoi(string1));
-	printf("%d\n", atoi(string1));
-
-	strcpy(string1, "  -30\0");
-	printf("%d ", ft_atoi(string1));
-	printf("%d\n", atoi(string1));
-
-	strcpy(string1, "  - 70\0");
-	printf("%d ", ft_atoi(string1));
-	printf("%d\n", atoi(string1));
-
-	strcpy(string1, "  ++90\0");
-	printf("%d ", ft_atoi(string1));
-	printf("%d\n", atoi(string1));
-
-	strcpy(string1, "  --30\0");
-	printf("%d ", ft_atoi(string1));
-	printf("%d\n", atoi(string1));
-
-	strcpy(string1, "  +-30a1\0");
-	printf("%d ", ft_atoi(string1));
-	printf("%d\n", atoi(string1));
-
-	strcpy(string1, "  -309a1\0");
-	printf("%d ", ft_atoi(string1));
-	printf("%d\n", atoi(string1));
-
-	strcpy(string1, "2147483647\0");
-	printf("%d ", ft_atoi(string1));
-	printf("%d\n", atoi(string1));
-
-	strcpy(string1, "-2147483647\0");
-	printf("%d ", ft_atoi(string1));
-	printf("%d\n", atoi(string1));
-
-	strcpy(string1, "-2147483648\0");
-	printf("%d ", ft_atoi(string1));
-	printf("%d\n", atoi(string1));
-
-	strcpy(string1, "2147483648\0");
-	printf("%d ", ft_atoi(string1));
-	printf("%d\n", atoi(string1));
+int     main(void)
+{
+    printf("%c\n", '\200');
+    printf("%d\n", '\200');
+    printf("%c\n", '\0');
+    printf("%d\n", '\0');
+    printf("%c\n", '\200' - '\0');
+    printf("%c\n", (unsigned char)'\200' - (unsigned char)'\0');
+    printf("%d\n", (unsigned char)'\200' - (unsigned char)'\0');
+    printf("%d\n", '\200' - '\0');
+    return (0);
 }

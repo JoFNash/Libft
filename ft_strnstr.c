@@ -4,24 +4,27 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	char	*pb;
 	char	*pl;
+	size_t	tmp_len;
 
-	if (!big || !little)
+	if (!big || len == 0)
 		return (NULL);
-	while (*big)
+	if (!little || ft_strncmp(little, "", ft_strlen(little)) == 0 )
+		return ((char *)big);
+	while (*big && len--)
 	{
 		if (*big == *little)
 		{
+			tmp_len = len;
 			pb = (char *)big;
 			pl = (char *)little;
 			while (*pb == *pl && --len)
 			{
 				pl++;
 				pb++;
-				//printf("*pb = %c ", *pb);
-				//printf("*pl = %c\n", *pl);
 			}
-			if (len == 0)
+			if (*pl == '\0')
 				return ((char *)big);
+			len = tmp_len;
 		}
 		big++;
 	}
