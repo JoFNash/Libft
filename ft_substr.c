@@ -12,11 +12,9 @@
 
 #include "libft.h"
 
-// "qwerty", 2, 1102903801289 -> erty
-
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*substr;
+	char	*string;
 	size_t	i;
 	size_t	j;
 	size_t	size;
@@ -25,19 +23,19 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	size = ft_strlen(s); 
 	if (start > size)
-		return (NULL);
+		len = 0;
 	if (len > size)
-		substr = (char *)malloc(sizeof(char) * (size + 1));
+		string = (char *)malloc(sizeof(char) * (size + 1));
 	else
-		substr = (char *)malloc(sizeof(char) * (len + 1));
-	if (!substr)
+		string = (char *)malloc(sizeof(char) * (len + 1));
+	if (!string)
 		return (NULL);
 	i = start;
 	j = 0;
 	while (i < size && (len--) != 0)
 	{
-		substr[j++] = s[i++];
+		string[j++] = s[i++];
 	}
-	substr[i] = '\0';
-	return (substr);
+	string[j] = '\0';
+	return (string);
 }

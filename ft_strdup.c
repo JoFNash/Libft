@@ -3,19 +3,21 @@
 char	*ft_strdup(const char *s)
 {
 	char	*copy;
-	int		len;
+	size_t	len;
+	size_t	i;
 
-	copy = NULL;
+	if (!s)
+		return (NULL);
 	len = ft_strlen(s);
-	copy = malloc(len);
+	copy = (char *)malloc(sizeof(char) * (len + 1));
 	if (!copy)
 		return (NULL);
-	while (len--)
+	i = 0;
+	while (i < len)
 	{
-		*copy = *s;
-		copy++;
-		s++;
+		copy[i] = s[i];
+		i++;
 	}
-	*copy = '\0';
+	copy[i] = '\0';
 	return (copy);
 }

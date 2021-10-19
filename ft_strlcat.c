@@ -2,16 +2,23 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	size_t	i;
-	size_t	len;
+	size_t len;
 
-	i = 0;
-	len = ft_strlen(dest);
-	while (i < size)
+	len = ft_strlen(src);
+	if (!dest || !src)
+		return (0);
+	if (size != 0)
 	{
-		dest[len + i] = src[i];
-		i++;
+		if (size - 1 <= len)
+		{
+			ft_memcpy(dest, src, size - 1);
+			dest[size - 1] = '\0';
+		}
+		else
+		{
+			ft_memcpy(dest, src, len);
+			dest[len] = '\0';	
+		}
 	}
-	dest[len + i] = '\0';
-	return(ft_strlen(dest) + ft_strlen(src));
+	return (len);
 }
