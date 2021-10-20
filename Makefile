@@ -36,6 +36,16 @@ SRCS 		= ft_memset.c\
 	ft_strtrim.c\
 	ft_split.c
 
+BONUS_SRCS	= ft_lstnew.c\
+	ft_lstadd_front.c\
+	ft_lstsize.c\
+	ft_lstlast.c\
+	ft_lstadd_back.c\
+	ft_lstdelone.c\
+	ft_lstclear.c\
+	ft_lstiter.c\
+	ft_lstmap.c\
+
 OBJS 		= $(SRCS:.c=.o)
 
 CC 			= gcc
@@ -61,6 +71,9 @@ clean:
 
 fclean:		clean
 			$(RM) $(NAME)
+
+bonus:		$(OBJS) $(BONUS_OBJS) $(HEADER)
+			ar rc $(NAME) $(OBJS) $(BONUS_OBJS)
 
 re:			fclean all
 

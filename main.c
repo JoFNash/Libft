@@ -23,6 +23,11 @@ static void    ft_print_list(t_list * lst)
    }
 }
 
+static void delete(void *content)
+{
+	free(content);
+}
+
 int     main(void)
 {
     char str1[10] = "Hello!";
@@ -38,6 +43,7 @@ int     main(void)
     ft_lstadd_back(&head, new1);
     ft_lstadd_back(&head, new2);
     ft_lstadd_back(&head, new3);
-    
+
     ft_print_list(head);
+    return (0);
 }
