@@ -1,45 +1,85 @@
 #include "libft.h"
 
-static void 	check_sym(char const *string, char const *set, int *flag, int len)
+static int check_char_in_s(char c, const char *set)
 {
 	size_t	i;
 
 	i = 0;
 	while (set[i] != '\0')
 	{
-		if (string[0] == set[i])
-			flag[0] = 1;
-		if (string[len - 1] == set[i])
-			flag[1] = 1;
-		if (flag[0] && flag[1])
-			break;
+		if (set[i] == c)
+			return (1);
 		i++;
 	}
+	return (0);
+}
+
+static size_t count_begin_char(const char *s1, const char *set)
+{
+	size_t	count;
+	size_t	i;
+
+	count = 0;
+	i = 0;
+	if (check_char_in_s(s1[0], set) == 1)
+	{
+		while (check_char_in_s(s1[i], set) == 1)
+		{
+			count++;
+			i++;
+		}
+		return (count);
+	}
+	return (0);
+}
+
+static size_t count_end_char(const char *s1, const char *set)
+{
+	size_t	count;
+	size_t	len_s1;
+	size_t	i;
+
+	count = 0;
+	len_s1 = ft_strlen(s1);
+	i = len_s1 - 1;
+	if (check_char_in_s(s1[i], set) == 1)
+	{
+		while (check_char_in_s(s1[i], set) == 1)
+		{
+			count++;
+			i--;
+		}
+		return (count);
+	}
+	return (0);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*str;
+	size_t	i;
+	size_t 	begin;
+	size_t	end;
 	size_t	len;
-	size_t	i; 
-	size_t	j;
-	int		flag[2];
 
 	if (!s1 || !set)
 		return (NULL);
-	flag[0] = 0;
-	flag[1] = 0;
-	i = 0;
+	begin = count_begin_char(s1, set);
+	end = count_end_char(s1, set);
 	len = ft_strlen(s1);
-	check_sym(s1, set, flag, len);
-	len = len - (flag[0] + flag[1]);
+	if (begin + end > len)
+		len = 0;
+	else
+		len = ft_strlen(s1) - (begin + end);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	j = flag[0];
 	i = 0;
-	while ((len--) != 0)
-		str[i++] = s1[j++];
+	while (len--)
+	{
+		str[i] = s1[i + begin];
+		i++;
+	}
 	str[i] = '\0';
 	return (str);
 }

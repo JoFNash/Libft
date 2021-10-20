@@ -35,7 +35,7 @@ char	*ft_itoa(int num)
 		return ("0\0");
 	len = len_num(num);
 	if (num == -2147483648)
-		return ("-2147483648\0"); // тут нужно '\0'?
+		return ("-2147483648\0"); 
 	check_sign(&num, &len, &sign);
 	number = (char *)malloc(sizeof(char) * (len + 1));
 	if (!number)

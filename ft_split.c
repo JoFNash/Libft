@@ -1,8 +1,6 @@
 #include "libft.h"
 
-// с может = '\0'?
-
-int get_num_words(char const *s, char c)
+static int get_num_words(char const *s, char c)
 {
 	size_t	i;
 	int		words;
@@ -19,13 +17,11 @@ int get_num_words(char const *s, char c)
 		}
 		i++;
 	}
-	//printf("\nwords = %d\n", words);
 	return (words);
 }
 
-void alloc_mem(char **mass, int length, size_t *k) // для каждого слова выделяет память точно правильно
+static void alloc_mem(char **mass, int length, size_t *k)
 {
-	//printf("length of word =  %d\n", length);
 	mass[*k] = (char *)malloc(sizeof(char) * (length + 1));
 	if (!mass[*k])
 	{
@@ -38,7 +34,7 @@ void alloc_mem(char **mass, int length, size_t *k) // для каждого сл
 	(*k)++;
 }
 
-void get_mem_for_words(char const *s, char c, char **mass)
+static void get_mem_for_words(char const *s, char c, char **mass)
 {
 	int 	length;
 	size_t	i;
@@ -68,7 +64,7 @@ void get_mem_for_words(char const *s, char c, char **mass)
 	}
 }
 
-char	**get_mass(char const *s, char c, char **mass)
+static char	**get_mass(char const *s, char c, char **mass)
 {
 	size_t	i;
 	size_t	j;
@@ -87,22 +83,25 @@ char	**get_mass(char const *s, char c, char **mass)
 		{
 			if (s[i] == '\0')
 			{
-				//printf("break! \'\0\' is here!");
-				return (mass);
+				break;
 			}
 			k = 0;
 			while (s[i] != c && s[i] != '\0')
 			{
 				mass[j][k] = s[i];
-				//printf("mass[%d][%d] = %c\n", j, k, mass[j][k]);
 				i++;
 				k++;
 			}
 			mass[j][k] = '\0';
-			//printf("mass[%d][%d] = %c (null)\n", j, k, mass[j][k]);
 			j++;
-			//printf("s[i] = %c\n", s[i]);
 		}
+	}
+	if (s[i] == '\0')
+	{
+		//printf("ZASHLI!");
+		//printf("j = %d\n", j);
+		//printf("%s\n", mass[j]);
+		mass[j] = NULL;
 	}
 	return (mass);
 }
@@ -114,20 +113,12 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	printf("1");
 	words = get_num_words(s, c);
-	printf("2");
-
-	mass = (char **)malloc(sizeof(char *) * words);
+	mass = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!mass)
 		return (NULL);
-	printf("3");
-
 	get_mem_for_words(s, c, mass);
-	printf("4");
-
 	mass = get_mass(s, c, mass);
-	printf("5");
 
 	return (mass);
 }
