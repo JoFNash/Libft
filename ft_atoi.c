@@ -37,6 +37,7 @@ int	ft_atoi(const char *nptr)
 		number = number * 10 + (nptr[i] - '0');
 		i++;
 	}
+	
 	if (sign == -1)
 		number *= -1;
 	return (number);
