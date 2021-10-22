@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hsybassi <hsybassi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/22 17:18:34 by hsybassi          #+#    #+#             */
+/*   Updated: 2021/10/22 17:57:24 by hsybassi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static int check_char_in_s(char c, const char *set)
+static int	check_char_in_s(char c, const char *set)
 {
 	size_t	i;
 
@@ -14,7 +26,7 @@ static int check_char_in_s(char c, const char *set)
 	return (0);
 }
 
-static size_t count_begin_char(const char *s1, const char *set)
+static size_t	count_begin_char(const char *s1, const char *set)
 {
 	size_t	count;
 	size_t	i;
@@ -33,7 +45,7 @@ static size_t count_begin_char(const char *s1, const char *set)
 	return (0);
 }
 
-static size_t count_end_char(const char *s1, const char *set)
+static size_t	count_end_char(const char *s1, const char *set)
 {
 	size_t	count;
 	size_t	len_s1;
@@ -58,7 +70,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*str;
 	size_t	i;
-	size_t 	begin;
+	size_t	begin;
 	size_t	end;
 	size_t	len;
 

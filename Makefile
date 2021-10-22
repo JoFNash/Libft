@@ -47,6 +47,7 @@ BONUS_SRCS	= ft_lstnew.c\
 	ft_lstmap.c\
 
 OBJS 		= $(SRCS:.c=.o)
+BONUS_OBJS 	= $(BONUS_SRCS:.c=.o)
 
 CC 			= gcc
 

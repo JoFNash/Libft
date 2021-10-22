@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hsybassi <hsybassi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/22 17:16:54 by hsybassi          #+#    #+#             */
+/*   Updated: 2021/10/22 17:16:54 by hsybassi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static int		len_num(int num)
+static	int	len_num(int num)
 {
 	int		len;
 
@@ -35,7 +47,7 @@ char	*ft_itoa(int num)
 		return ("0\0");
 	len = len_num(num);
 	if (num == -2147483648)
-		return ("-2147483648\0"); 
+		return ("-2147483648\0");
 	check_sign(&num, &len, &sign);
 	number = (char *)malloc(sizeof(char) * (len + 1));
 	if (!number)
