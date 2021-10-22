@@ -14,93 +14,106 @@
 #include <stdio.h>
 #include <string.h>
 
-void    ft_print_result(t_list *elem)
+void    ft_print_result(char const *s)
 {
     int     len;
 
     len = 0;
-    while (((char *)elem->content)[len])
+    while (s[len])
         len++;
-    write(1, ((char *)elem->content), len);
-    write(1, "\n", 1);
+    write(1, s, len);
 }
 
-t_list  *ft_lstnewone(void *content)
+int     main(int argc, const char *argv[])
 {
-    t_list  *elem;
+    char    **tabstr;
+    int     i;
+    int     arg;
 
-    elem = (t_list *)malloc(sizeof(t_list));
-    if (!elem)
-        return (NULL);
-    if (!content)
-        elem->content = NULL;
-    else
-        elem->content = content;
-    elem->next = NULL;
-    return (elem);
-}
 
-void    *ft_map(void *ct)
-{
-    int i;
-    void    *c;
-    char    *pouet;
-
-    c = ct;
-    i = -1;
-    pouet = (char *)c;
-    while (pouet[++i])
-        if (pouet[i] == 'o')
-            pouet[i] = 'a';
-    return (c);
-}
-
-void    ft_del(void *content)
-{
-    free(content);
-}
-
-int main(int argc, const char *argv[])
-{
-    t_list      *elem;
-    t_list      *elem2;
-    t_list      *elem3;
-    t_list      *elem4;
-    t_list      *list;
-    char        *str = strdup("lorem");
-    char        *str2 = strdup("ipsum");
-    char        *str3 = strdup("dolor");
-    char        *str4 = strdup("sit");
-
-    elem = ft_lstnewone(str);
-    elem2 = ft_lstnewone(str2);
-    elem3 = ft_lstnewone(str3);
-    elem4 = ft_lstnewone(str4);
-
-    if (argc == 1 || !elem || !elem2 || !elem3 || !elem4)
+    if (argc == 1)
         return (0);
-    elem->next = elem2;
-    elem2->next = elem3;
-    elem3->next = elem4;
-    if (atoi(argv[1]) == 1)
+    i = 0;
+    if ((arg = atoi(argv[1])) == 1)
     {
-        if (!(list = ft_lstmap(elem, &ft_map, &ft_del)))
-            return (0);
-        if (list == elem)
-            write(1, "A new list is not returned\n", 27);
-        int i;
-        i = 0;
-        ft_print_result(list);
-        while (list->next)
+        if (!(tabstr = ft_split("          ", ' ')))
+            ft_print_result("NULL");
+        else
         {
-            list = list->next;
-            ft_print_result(list);
-            i++;
+            while (tabstr[i] != NULL)
+            {
+                ft_print_result(tabstr[i]);
+                write(1, "\n", 1);
+                i++;
+            }
         }
+    }
+    else if (arg == 2)
+    {
+        if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ')))
+            ft_print_result("NULL");
+        else
+        {
+            while (tabstr[i] != NULL)
+            {
+                ft_print_result(tabstr[i]);
+                write(1, "\n", 1);
+                i++;
+            }
+        }
+    }
+    else if (arg == 3)
+    {
+        if (!(tabstr = ft_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ')))
+            ft_print_result("NULL");
+        else
+        {
+            while (tabstr[i] != NULL)
+            {
+                ft_print_result(tabstr[i]);
+                write(1, "\n", 1);
+                i++;
+            }
+        }
+    }
+    else if (arg == 4)
+    {
+        if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i')))
+            ft_print_result("NULL");
+        else
+        {
+            while (tabstr[i] != NULL)
+            {
+                ft_print_result(tabstr[i]);
+                write(1, "\n", 1);
+                i++;
+            }
+        }
+    }
+    else if (arg == 5)
+    {
+        if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'z')))
+            ft_print_result("NULL");
+        else
+        {
+            while (tabstr[i] != NULL)
+            {
+                ft_print_result(tabstr[i]);
+                write(1, "\n", 1);
+                i++;
+            }
+        }
+    }
+    else if (arg == 6)
+    {
+        if (!(tabstr = ft_split("", 'z')))
+            ft_print_result("NULL");
+        else
+            if (!tabstr[0])
+                ft_print_result("ok\n");
     }
     return (0);
 }
-
 
 
 // static void    ft_print_list(t_list * lst)

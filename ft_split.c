@@ -75,16 +75,11 @@ static char	**get_mass(char const *s, char c, char **mass)
 	while (s[i] != '\0')
 	{
 		if (s[i] == c)
-		{
-			//printf("s[%d] = %c\n", i, s[i]);
 			i++;
-		}
 		else if (s[i] != c)
 		{
 			if (s[i] == '\0')
-			{
 				break;
-			}
 			k = 0;
 			while (s[i] != c && s[i] != '\0')
 			{
@@ -97,12 +92,7 @@ static char	**get_mass(char const *s, char c, char **mass)
 		}
 	}
 	if (s[i] == '\0')
-	{
-		//printf("ZASHLI!");
-		//printf("j = %d\n", j);
-		//printf("%s\n", mass[j]);
 		mass[j] = NULL;
-	}
 	return (mass);
 }
 
