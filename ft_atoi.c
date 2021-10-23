@@ -14,7 +14,7 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int		number;
+	long long int		number;
 	int		sign;
 	size_t	i;
 
@@ -37,8 +37,12 @@ int	ft_atoi(const char *nptr)
 		number = number * 10 + (nptr[i] - '0');
 		i++;
 	}
-	
+	// непонятненько
 	if (sign == -1)
 		number *= -1;
+	// if (number > INT_MAX)
+	// 	return (-1); // это так должно работать?
+	// else if (number < INT_MIN)
+	// 	return (0);
 	return (number);
 }

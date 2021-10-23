@@ -14,122 +14,21 @@
 #include <stdio.h>
 #include <string.h>
 
-<<<<<<< HEAD
-void    ft_print_result(char const *s)
+int main(void)
 {
-    int     len;
+    char n[40] = "99999999999999999999999999";
+    int i1 = atoi(n);
+    int i2 = ft_atoi(n);
 
-    len = 0;
-    while (s[len])
-        len++;
-    write(1, s, len);
-}
-
-int     main(int argc, const char *argv[])
-{
-    char    **tabstr;
-    int     i;
-    int     arg;
-
-
-    if (argc == 1)
-        return (0);
-    i = 0;
-    if ((arg = atoi(argv[1])) == 1)
-    {
-        if (!(tabstr = ft_split("          ", ' ')))
-            ft_print_result("NULL");
-        else
-        {
-            while (tabstr[i] != NULL)
-            {
-                ft_print_result(tabstr[i]);
-                write(1, "\n", 1);
-                i++;
-            }
-        }
-    }
-    else if (arg == 2)
-    {
-        if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ')))
-            ft_print_result("NULL");
-        else
-        {
-            while (tabstr[i] != NULL)
-            {
-                ft_print_result(tabstr[i]);
-                write(1, "\n", 1);
-                i++;
-            }
-        }
-    }
-    else if (arg == 3)
-    {
-        if (!(tabstr = ft_split("   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse   ", ' ')))
-            ft_print_result("NULL");
-        else
-        {
-            while (tabstr[i] != NULL)
-            {
-                ft_print_result(tabstr[i]);
-                write(1, "\n", 1);
-                i++;
-            }
-        }
-    }
-    else if (arg == 4)
-    {
-        if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'i')))
-            ft_print_result("NULL");
-        else
-        {
-            while (tabstr[i] != NULL)
-            {
-                ft_print_result(tabstr[i]);
-                write(1, "\n", 1);
-                i++;
-            }
-        }
-    }
-    else if (arg == 5)
-    {
-        if (!(tabstr = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.", 'z')))
-            ft_print_result("NULL");
-        else
-        {
-            while (tabstr[i] != NULL)
-            {
-                ft_print_result(tabstr[i]);
-                write(1, "\n", 1);
-                i++;
-            }
-        }
-    }
-    else if (arg == 6)
-    {
-        if (!(tabstr = ft_split("", 'z')))
-            ft_print_result("NULL");
-        else
-            if (!tabstr[0])
-                ft_print_result("ok\n");
-    }
+    if (i1 == i2)
+        printf("YES\n");
+    else
+        printf("NO\n");
+    printf("%d %d", i1, i2);
     return (0);
 }
-=======
-// void    ft_print_result(t_list *elem)
-// {
-//     int     len;
->>>>>>> cd43608ddb059f22ab4ea08ee4c742b30bc361a1
 
-//     len = 0;
-//     while (((char *)elem->content)[len])
-//         len++;
-//     write(1, ((char *)elem->content), len);
-//     write(1, "\n", 1);
-// }
 
-<<<<<<< HEAD
-=======
 // t_list  *ft_lstnewone(void *content)
 // {
 //     t_list  *elem;
@@ -206,7 +105,6 @@ int     main(int argc, const char *argv[])
 //     return (0);
 // }
 //
->>>>>>> cd43608ddb059f22ab4ea08ee4c742b30bc361a1
 // static void    ft_print_list(t_list * lst)
 // {
 //    while (lst != NULL)

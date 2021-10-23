@@ -89,11 +89,7 @@ static char	**get_mass(char const *s, char c, char **mass)
 		else if (s[i] != c)
 		{
 			if (s[i] == '\0')
-<<<<<<< HEAD
-				break;
-=======
 				break ;
->>>>>>> cd43608ddb059f22ab4ea08ee4c742b30bc361a1
 			k = 0;
 			while (s[i] != c && s[i] != '\0')
 			{
