@@ -16,17 +16,39 @@
 
 int main(void)
 {
-    char n[40] = "-99999999999999999999999999";
-    long long int i1 = atoi((void *)0);
-    long long int i2 = ft_atoi((void *)0);
+	char *i1 = ft_itoa(-623);
+	char *i2 = ft_itoa(156);
+	char *i3 = ft_itoa(-0);
 
-    if (i1 == i2)
-        printf("YES\n");
-    else
-        printf("NO\n");
-    printf("%d %d", atoi(n), ft_atoi(n));
+	if (strcmp(i1, "-623"))
+	{
+			printf("ploha");
+	}
+	if (strcmp(i2, "156"))
+	{
+			printf("ploha");
+	}
+	if (strcmp("0", i3))
+	{
+			printf("ploha");
+	}
+	printf("ok");
     return (0);
 }
+
+
+	// char *s1 = "AAAAAA";
+	// size_t max = strlen(s1);
+	// char *i1 = strnstr(s1, s1, max);
+	// char *i2 = ft_strnstr(s1, s1, max);
+
+	// if (i1 == i2)
+	// 	printf("YES\n");
+	// else
+	// 	printf("NO\n");
+
+	// printf("i1 = %s\n", i1);
+	// printf("i2 = %s\n", i2);
 
 
 // t_list  *ft_lstnewone(void *content)

@@ -55,6 +55,7 @@ static char	*check_ZERO_and_INT_MIN(int num)
 {
 	char	*number;
 
+	number = NULL;
 	if (num == 0)
 	{
 		number = ft_strncpy(number, "0\0", 2);
@@ -63,7 +64,7 @@ static char	*check_ZERO_and_INT_MIN(int num)
 	}
 	else if (num == -2147483648)
 	{
-		number = ft_strncpy(char *dest, "-2147483648", 12);
+		number = ft_strncpy(number, "-2147483648", 12);
 		if (!number)
 			return (NULL);
 	}
@@ -80,7 +81,7 @@ char	*ft_itoa(int num)
 	sign = 1;
 	number = check_ZERO_and_INT_MIN(num);
 	if (!num)
-		return ();
+		return (NULL);
 	len = len_num(num);
 	check_sign(&num, &len, &sign);
 	number = (char *)malloc(sizeof(char) * (len + 1));

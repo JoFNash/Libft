@@ -12,19 +12,24 @@
 
 #include "libft.h"
 
+int	isspace(int c)
+{
+	if (c == ' ' || c == '\f' || c == '\n' \
+	|| c == '\r' || c == '\t' || c == '\v')
+		return (1);
+	return (0);
+}
+
 int	ft_atoi(const char *nptr)
 {
-	long long int		number;
-	int		sign;
-	size_t	i;
+	long long int	number;
+	int				sign;
+	size_t			i;
 
-	if (!nptr)
-		return (0);
-	sign = 0;
+	sign = 1;
 	i = 0;
 	number = 0;
-	while (nptr[i] == ' ' || nptr[i] == '\f' || nptr[i] == '\n' \
-	|| nptr[i] == '\r' || nptr[i] == '\t' || nptr[i] == '\v')
+	while (isspace(nptr[i]))
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
@@ -35,14 +40,11 @@ int	ft_atoi(const char *nptr)
 	while (nptr[i] != '\0' && ft_isdigit(nptr[i]))
 	{
 		number = number * 10 + (nptr[i] - '0');
+		if (number > INT_MAX && sign == 1)
+			return (-1);
+		if (number < INT_MIN && sign == -1)
+			return (0);
 		i++;
 	}
-	// непонятненько
-	if (sign == -1)
-		number *= -1;
-	if (number > INT_MAX)
-		return (-1); // это так должно работать?
-	else if (number < INT_MIN)
-		return (0);
-	return (number);
+	return (number * (sign));
 }
