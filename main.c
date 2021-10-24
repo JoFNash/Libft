@@ -16,39 +16,177 @@
 
 int main(void)
 {
-	char *i1 = ft_itoa(-623);
-	char *i2 = ft_itoa(156);
-	char *i3 = ft_itoa(-0);
+	char    *s1 = "MZIRIBMZIRIBMZE123";
+	char    *s2 = "MZIRIBMZE";
+	size_t  max = strlen(s2);
 
-	if (strcmp(i1, "-623"))
-	{
-			printf("ploha");
-	}
-	if (strcmp(i2, "156"))
-	{
-			printf("ploha");
-	}
-	if (strcmp("0", i3))
-	{
-			printf("ploha");
-	}
-	printf("ok");
+	char    *i2 = ft_strnstr(s1, s2, max);
+	printf("%d", i2);
+
     return (0);
 }
 
 
-	// char *s1 = "AAAAAA";
-	// size_t max = strlen(s1);
-	// char *i1 = strnstr(s1, s1, max);
-	// char *i2 = ft_strnstr(s1, s1, max);
+	// char    *s1 = "see FF your FF return FF now FF";
+	// char    *s2 = "FF";
+	// size_t  max = strlen(s1);
 
+	// char    *i1 = strnstr(s1, s2, max);
+	// char    *i2 = ft_strnstr(s1, s2, max);
 	// if (i1 == i2)
-	// 	printf("YES\n");
-	// else
-	// 	printf("NO\n");
+	// 		exit(TEST_SUCCESS);
+	// SET_DIFF(i1, i2);
+	// exit(TEST_FAILED);
 
-	// printf("i1 = %s\n", i1);
-	// printf("i2 = %s\n", i2);
+
+
+
+	// char    *s1 = "FF";
+	// char    *s2 = "see F your F return F now F";
+	// size_t  max = strlen(s2);
+
+	// char    *i1 = strnstr(s1, s2, max);
+	// char    *i2 = ft_strnstr(s1, s2, max);
+	// if (i1 == i2)
+	// 		exit(TEST_SUCCESS);
+	// SET_DIFF(i1, i2);
+	// exit(TEST_FAILED);
+	
+
+
+
+	// char    *s1 = "MZIRIBMZIRIBMZE123";
+	// char    *s2 = "MZIRIBMZE";
+	// size_t  max = strlen(s2);
+
+	// char    *i1 = strnstr(s1, s2, max);
+	// char    *i2 = ft_strnstr(s1, s2, max);
+	// if (i1 == i2)
+	// 		exit(TEST_SUCCESS);
+	// SET_DIFF(i1, i2);
+	// exit(TEST_FAILED);
+	
+
+
+	// char *big = "abcdef";
+	// char *little = "abcdefghijklmnop";
+	// size_t  max = strlen(big);
+
+	// char    *s1 = strnstr(big, little, max);
+	// char    *s2 = ft_strnstr(big, little, max);
+
+	// if (s1 == s2)
+	// 		exit(TEST_SUCCESS);
+	// SET_DIFF(s1, s2);
+	// exit(TEST_FAILED);
+	
+	// char *  big = "123456789";
+	// char *  little = "9";
+	// size_t  max = 8;
+
+	// char    *s1 = strnstr(big, little, max);
+	// char    *s2 = ft_strnstr(big, little, max);
+
+	// if (s1 == s2)
+	// 		exit(TEST_SUCCESS);
+	// SET_DIFF(s1, s2);
+	// exit(TEST_FAILED);
+	
+	// char    *s1 = "FF";
+	// char    *s2 = "see FF your FF return FF now FF";
+
+	// char    *i1 = strnstr(s1, s2, 4);
+	// char    *i2 = ft_strnstr(s1, s2, 4);
+	// if (i1 == i2)
+	// 		exit(TEST_SUCCESS);
+	// SET_DIFF(i1, i2);
+	// exit(TEST_FAILED);
+
+	// char    *s1 = "";
+	// char    *s2 = "oh no not the empty string !";
+	// size_t  max = strlen(s2);
+
+	// char    *i1 = strnstr(s1, s2, max);
+	// char    *i2 = ft_strnstr(s1, s2, max);
+	// if (i1 == i2)
+	// 		exit(TEST_SUCCESS);
+	// SET_DIFF(i1, i2);
+	// exit(TEST_FAILED);
+	
+	// char    *s1 = "oh no not the empty string !";
+	// char    *s2 = "";
+	// size_t  max = strlen(s1);
+
+	// char    *i1 = strnstr(s1, s2, max);
+	// char    *i2 = ft_strnstr(s1, s2, max);
+	// if (i1 == i2)
+	// 		exit(TEST_SUCCESS);
+	// SET_DIFF(i1, i2);
+	// exit(TEST_FAILED);
+
+	// char    *s1 = "oh no not the empty string !";
+	// char    *s2 = "";
+	// size_t  max = 0;
+
+	// char    *i1 = strnstr(s1, s2, max);
+	// char    *i2 = ft_strnstr(s1, s2, max);
+	// if (i1 == i2)
+	// 		exit(TEST_SUCCESS);
+	// SET_DIFF(i1, i2);
+	// exit(TEST_FAILED);
+	
+	// char    *s1 = "AAAAAAAAAAAAA";
+	// size_t  max = strlen(s1);
+
+	// char    *i1 = strnstr(s1, s1, max);
+	// char    *i2 = ft_strnstr(s1, s1, max);
+	// if (i1 == i2)
+	// 		exit(TEST_SUCCESS);
+	// SET_DIFF(i1, i2);
+	
+	// char    *s1 = "A";
+
+	// char    *i1 = strnstr(s1, s1, 2);
+	// char    *i2 = ft_strnstr(s1, s1, 2);
+	// if (i1 == i2)
+	// 		exit(TEST_SUCCESS);
+	// SET_DIFF(i1, i2);
+	// exit(TEST_FAILED);
+	
+	// const size_t size = 20;
+	// char    *s1 = electric_alloc(size);
+	// char    *s2 = electric_alloc(size);
+
+	// strcpy(s1, "is there a nyacat ?");
+	// strcpy(s2, "is there a nyacat ?");
+
+	// mprotect(s1 - 4096 + size, 4096, PROT_READ);
+	// mprotect(s2 - 4096 + size, 4096, PROT_READ);
+
+	// ft_strnstr(s1, s2, size);
+	// exit(TEST_SUCCESS);
+
+                        
+
+
+	// char *i1 = ft_itoa(-623);
+	// char *i2 = ft_itoa(156);
+	// char *i3 = ft_itoa(-0);
+
+	// if (strcmp(i1, "-623"))
+	// {
+	// 		printf("ploha");
+	// }
+	// if (strcmp(i2, "156"))
+	// {
+	// 		printf("ploha");
+	// }
+	// if (strcmp("0", i3))
+	// {
+	// 		printf("ploha");
+	// }
+	// printf("ok");
+
 
 
 // t_list  *ft_lstnewone(void *content)
