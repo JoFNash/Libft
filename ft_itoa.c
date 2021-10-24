@@ -51,24 +51,22 @@ static char *ft_strncpy(char *dest, char *src, int n)
 	return (dest);
 }
 
-static char	*check_ZERO_and_INT_MIN(int num)
+static int	check_ZERO_and_INT_MIN(int num, char *number)
 {
-	char	*number;
-
 	number = NULL;
 	if (num == 0)
 	{
 		number = ft_strncpy(number, "0\0", 2);
 		if (!number)
-			return (NULL);
+			return (0);
 	}
 	else if (num == -2147483648)
 	{
 		number = ft_strncpy(number, "-2147483648", 12);
 		if (!number)
-			return (NULL);
+			return (0);
 	}
-	return (NULL);
+	return (1);
 }
 
 char	*ft_itoa(int num)
@@ -78,10 +76,14 @@ char	*ft_itoa(int num)
 	int		len;
 	int		sign;
 
+	number = NULL;
 	sign = 1;
-	number = check_ZERO_and_INT_MIN(num);
 	if (!num)
 		return (NULL);
+	if (!check_ZERO_and_INT_MIN(num, number))
+		return (NULL);
+	else
+		return (number);
 	len = len_num(num);
 	check_sign(&num, &len, &sign);
 	number = (char *)malloc(sizeof(char) * (len + 1));
