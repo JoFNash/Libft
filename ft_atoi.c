@@ -40,9 +40,9 @@ int	ft_atoi(const char *nptr)
 	// непонятненько
 	if (sign == -1)
 		number *= -1;
-	// if (number > INT_MAX)
-	// 	return (-1); // это так должно работать?
-	// else if (number < INT_MIN)
-	// 	return (0);
+	if (number > INT_MAX)
+		return (-1); // это так должно работать?
+	else if (number < INT_MIN)
+		return (0);
 	return (number);
 }

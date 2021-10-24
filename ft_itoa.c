@@ -17,6 +17,8 @@ static	int	len_num(int num)
 	int		len;
 
 	len = 0;
+	if (num == 0)
+		return (1);
 	while (num)
 	{
 		num = num / 10;
@@ -35,6 +37,39 @@ static void	check_sign(int *num, int *len, int *sign)
 	}
 }
 
+static char *ft_strncpy(char *dest, char *src, int n)
+{
+	dest = (char *)malloc(sizeof(char) * n);
+	if (!dest)
+		return (NULL);
+	else
+	{
+		dest = ft_memcpy(dest, src, n);
+		if (!dest)
+			return (NULL);
+	}
+	return (dest);
+}
+
+static char	*check_ZERO_and_INT_MIN(int num)
+{
+	char	*number;
+
+	if (num == 0)
+	{
+		number = ft_strncpy(number, "0\0", 2);
+		if (!number)
+			return (NULL);
+	}
+	else if (num == -2147483648)
+	{
+		number = ft_strncpy(char *dest, "-2147483648", 12);
+		if (!number)
+			return (NULL);
+	}
+	return (NULL);
+}
+
 char	*ft_itoa(int num)
 {
 	char	*number;
@@ -43,11 +78,10 @@ char	*ft_itoa(int num)
 	int		sign;
 
 	sign = 1;
-	if (num == 0)
-		return ("0\0");
+	number = check_ZERO_and_INT_MIN(num);
+	if (!num)
+		return ();
 	len = len_num(num);
-	if (num == -2147483648)
-		return ("-2147483648\0");
 	check_sign(&num, &len, &sign);
 	number = (char *)malloc(sizeof(char) * (len + 1));
 	if (!number)

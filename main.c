@@ -16,15 +16,15 @@
 
 int main(void)
 {
-    char n[40] = "99999999999999999999999999";
-    int i1 = atoi(n);
-    int i2 = ft_atoi(n);
+    char n[40] = "-99999999999999999999999999";
+    long long int i1 = atoi((void *)0);
+    long long int i2 = ft_atoi((void *)0);
 
     if (i1 == i2)
         printf("YES\n");
     else
         printf("NO\n");
-    printf("%d %d", i1, i2);
+    printf("%d %d", atoi(n), ft_atoi(n));
     return (0);
 }
 
