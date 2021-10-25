@@ -16,12 +16,15 @@
 
 int main(void)
 {
-	char    *s1 = "MZIRIBMZIRIBMZE123";
-	char    *s2 = "MZIRIBMZE";
-	size_t  max = strlen(s2);
+	char *i1 = ft_itoa((-2147483647 -1));
 
-	char    *i2 = ft_strnstr(s1, s2, max);
-	printf("%d", i2);
+	printf("%s", i1);
+	if (atoi(i1) != (-2147483647 -1))
+	{
+		printf("fail");
+	}
+	printf("win");
+
 
     return (0);
 }

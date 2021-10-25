@@ -1,6 +1,6 @@
 #include "libft.h"
 
-static	int	len_num(int num)
+static	int	new_len_num(int num)
 {
 	int		len;
 
@@ -17,13 +17,13 @@ static	int	len_num(int num)
 	return (len);
 }
 
-char	*ft_itoa(int num)
+char	*new_itoa(int num)
 {
 	char	*number;
 	int		len;
 	int		i;
 
-	len = len_num(num);
+	len = new_len_num(num);
 	number = (char *)malloc(sizeof(char) * (len + 1));
 	if (!number)
 		return (NULL);
