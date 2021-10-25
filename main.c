@@ -16,16 +16,18 @@
 
 int main(void)
 {
-	char *i1 = ft_itoa((-2147483647 -1));
-
-	printf("%s", i1);
-	if (atoi(i1) != (-2147483647 -1))
-	{
-		printf("fail");
-	}
-	printf("win");
-
-
+	ft_putnbr_fd(623, 1);
+	printf("\n");
+	ft_putnbr_fd(-1623, 1);
+	printf("\n");
+	ft_putnbr_fd(0, 1);
+	printf("\n");
+	ft_putnbr_fd(-0, 1);
+	printf("\n");
+	ft_putnbr_fd(1, 1);
+	printf("\n");
+	ft_putnbr_fd(-1, 1);
+	printf("\n");
     return (0);
 }
 
