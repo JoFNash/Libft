@@ -6,7 +6,7 @@
 /*   By: hsybassi <hsybassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 21:40:50 by hsybassi          #+#    #+#             */
-/*   Updated: 2021/10/25 21:40:51 by hsybassi         ###   ########.fr       */
+/*   Updated: 2021/10/25 23:40:23 by hsybassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ size_t	ft_strlcat(char	*dst, const char *src, size_t dstsize)
 	dst_len = ft_strlen(dst);
 	i = dst_len;
 	j = 0;
-	if (dstsize < dst_len)
+	if (dstsize <= dst_len)
 		return (dstsize + src_len);
-	while (j < dstsize - dst_len - 1)
+	while (j < dstsize - dst_len - 1 && src[j])
 	{
 		dst[i] = src[j];
 		i++;

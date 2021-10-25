@@ -6,7 +6,7 @@
 /*   By: hsybassi <hsybassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 21:21:17 by hsybassi          #+#    #+#             */
-/*   Updated: 2021/10/25 22:11:45 by hsybassi         ###   ########.fr       */
+/*   Updated: 2021/10/25 23:03:03 by hsybassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int				main(int argc, const char *argv[])
 	int		arg;
 	int		dest_len;
 
-	alarm(5);
 	dest_len = 15;
 	if (!(dest = (char *)malloc(sizeof(*dest) * dest_len)) || argc == 1)
 		return (0);
@@ -80,8 +79,10 @@ int				main(int argc, const char *argv[])
 	}
 	else if (arg == 8)
 	{
-		dest[10] = 'a';
-		check_strlcat(dest, "lorem ipsum dolor sit amet", 6, dest_len);
+		dest[10] = 'a'; // dest = "rrrrrr___a" 15
+		check_strlcat(dest, "lorem ipsum dolor sit amet", 6, dest_len); // len (src) = 25 
+		// 32
+		// rrrrrra%
 	}
 	else if (arg == 9)
 	{
