@@ -66,6 +66,15 @@ static size_t	count_end_char(const char *s1, const char *set)
 	return (0);
 }
 
+static size_t	count_len(size_t begin, size_t end, size_t len, const char *s1)
+{
+	if (begin + end > len)
+		len = 0;
+	else
+		len = ft_strlen(s1) - (begin + end);
+	return (len);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*str;
@@ -79,10 +88,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	begin = count_begin_char(s1, set);
 	end = count_end_char(s1, set);
 	len = ft_strlen(s1);
-	if (begin + end > len)
-		len = 0;
-	else
-		len = ft_strlen(s1) - (begin + end);
+	len = count_len(begin, end, len, s1);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);

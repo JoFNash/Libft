@@ -42,7 +42,7 @@ int	ft_atoi(const char *nptr)
 		number = number * 10 + (nptr[i] - '0');
 		if (number > INT_MAX && sign == 1)
 			return (-1);
-		if (number < INT_MIN && sign == -1)
+		if ((-1) * number < INT_MIN && sign == -1)
 			return (0);
 		i++;
 	}
