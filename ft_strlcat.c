@@ -14,23 +14,13 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	size_t	len;
+	size_t	result_len;
 
-	len = ft_strlen(src);
-	if (!dest || !src)
-		return (0);
-	if (size != 0)
-	{
-		if (size - 1 <= len)
-		{
-			ft_memcpy(dest, src, size - 1);
-			dest[size - 1] = '\0';
-		}
-		else
-		{
-			ft_memcpy(dest, src, len);
-			dest[len] = '\0';
-		}
-	}
-	return (len);
+	if (size < ft_strlen(dest))
+		return (1);											/*?*/
+// 	if (size - ft_strlen(dst) - 1 > ft_strlen(src))
+// 	{
+
+// 	}
+// }
 }

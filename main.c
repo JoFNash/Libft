@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <stdio.h>
 #include <string.h>
-
+#include <bsd/string.h>
 
 void	*lstmap_f(void *content) 
 {
@@ -23,34 +23,10 @@ void	*lstmap_f(void *content)
 
 int		main(void)
 {
+	char	dest[11] = "0123456789";
+	char	src[5] = "abcd";
 
-	t_list *l = ft_lstnew(strdup(" 1 2 3 "));
-	t_list *ret;
-
-	l->next = ft_lstnew(strdup("ss"));
-	l->next->next = ft_lstnew(strdup("-_-"));
-
-
-	ret = ft_lstmap(l, lstmap_f, ((void *)0));
-
-	while (ret != NULL)
-	{
-		printf("%s -> ", ret->content);
-		ret = ret->next;
-	}
-	
-	while (l != NULL)
-	{
-		printf("%s -> ", l->content);
-		l = l->next;
-	}
-
-	if (!strcmp(ret->content, "OK !") && !strcmp(ret->next->content, "OK !") && \
-			!strcmp(ret->next->next->content, "OK !") && !strcmp(l->content, " 1 2 3 ") && \
-			!strcmp(l->next->content, "ss") && !strcmp(l->next->next->content, "-_-"))
-			{
-				printf("Okey!");
-			}
+	printf("%ld", strlcat(dest, src, 13));
 }
 
 	// ft_putnbr_fd(623, 1);
