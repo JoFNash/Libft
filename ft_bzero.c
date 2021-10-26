@@ -14,9 +14,11 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	char	*p;
+	unsigned char	*p;
 
-	p = s;
+	if (!s)
+		return (NULL);
+	p = (unsigned char *)s;
 	while (n--)
 	{
 		*p = '\0';

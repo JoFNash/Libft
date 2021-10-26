@@ -27,7 +27,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	len_little = ft_strlen(little);
 	tmp_len = len;
 	i = 0;
-	if (len_big - len_little >= 0)
+	if (len_big >= len_little)
 	{
 		while ((i <= len_big - len_little) && (tmp_len--) && \
 		(i + len_little <= len))
@@ -39,30 +39,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
-
-	//char	*pb;
-	//char	*pl;
-	//size_t	tmp_len;
-
-	// if (!big && !little)
-	// 	return (NULL);
-	// if (*little == 0)
-	// 	return ((char *)big);
-	// while (*big && len--)
-	// {
-	// 	if (*big == *little)
-	// 	{
-	// 		tmp_len = len;
-	// 		pb = (char *)big;
-	// 		pl = (char *)little;
-	// 		while (*pb == *pl && --len)
-	// 		{
-	// 			pl++;
-	// 			pb++;
-	// 		}
-	// 		if (*pl == '\0')
-	// 			return ((char *)big);
-	// 		len = tmp_len;
-	// 	}
-	// 	big++;
-	// }
