@@ -29,6 +29,13 @@ static	int	len_num(int num)
 	return (len);
 }
 
+static char	*ft_cpy_zero(char *str)
+{
+	str[0] = '0';
+	str[1] = '\0';
+	return (str);
+}
+
 char	*ft_itoa(int num)
 {
 	char	*number;
@@ -39,6 +46,8 @@ char	*ft_itoa(int num)
 	number = (char *)malloc(sizeof(char) * (len + 1));
 	if (!number)
 		return (NULL);
+	if (num == 0)
+		return (ft_cpy_zero(number));
 	i = 0;
 	if (num < 0)
 	{
@@ -47,14 +56,11 @@ char	*ft_itoa(int num)
 		num = num / (-10);
 		i = 1;
 	}
-	if (num == 0 && number[0] != '-')
-		number[0] = '0';
 	while (num != 0)
 	{
 		number[len - 1 - i++] = (num % 10) + '0';
 		num /= 10;
 	}
 	number[len] = '\0';
-	printf("num = %s\n", number);
 	return (number);
 }

@@ -2,6 +2,6 @@
 
 int main()
 {	
-	printf("%s", ft_itoa(0));
+	printf("\nitoa = %s\n", ft_itoa(0));
 	return (0);
 }
