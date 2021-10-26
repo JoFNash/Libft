@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-static int	ft_is_space(char c)
+static int	ft_isspace(char c)
 {
-	if (c == ' ' || c == '\t' || c == '\n'
+	if (c == ' ' || c == '\t' || c == '\n' 
 		|| c == '\v' || c == '\f' || c == '\r')
 		return (1);
 	return (0);
@@ -22,29 +22,29 @@ static int	ft_is_space(char c)
 
 int	ft_atoi(const char *str)
 {
-	long long int	tmp_result;
-	long long int	result;
-	int				negative;
+	long long int	tmp_num;
+	long long int	number;
+	int				sign;
 
-	result = 0;
-	negative = 1;
-	while (ft_is_space(*str))
+	number = 0;
+	sign = 1;
+	while (ft_isspace(*str))
 		str++;
 	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
-			negative = -1;
+			sign = -1;
 		str++;
 	}
 	while (*str && ft_isdigit(*str))
 	{
-		tmp_result = result;
-		result = result * 10 + (*str - '0');
-		if ((tmp_result != (result - (*str - '0')) / 10) && negative == 1)
+		tmp_num = number;
+		number = number * 10 + (*str - '0');
+		if ((tmp_num != (number - (*str - '0')) / 10) && sign == 1)
 			return (-1);
-		else if ((tmp_result != (result - (*str - '0')) / 10) && negative == -1)
+		else if ((tmp_num != (number - (*str - '0')) / 10) && sign == -1)
 			return (0);
 		str++;
 	}	
-	return ((int)(negative * result));
+	return ((int)(sign * number));
 }
