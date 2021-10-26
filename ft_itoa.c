@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
 static	int	len_num(int num)
 {
@@ -48,7 +49,7 @@ char	*ft_itoa(int num)
 		i = 1;
 	}
 	if (num == 0 && number[0] != '-')
-		number[0] = '0';
+		return (strcpy(number, "0\0"));
 	while (num != 0)
 	{
 		number[len - 1 - i++] = (num % 10) + '0';
