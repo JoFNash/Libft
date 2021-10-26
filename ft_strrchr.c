@@ -16,8 +16,6 @@ char	*ft_strrchr(const char *s, int c)
 {
 	char	*tmp;
 
-	if (!s)
-		return (0);
 	tmp = NULL;
 	while (*s != '\0')
 	{

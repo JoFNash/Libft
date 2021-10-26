@@ -6,7 +6,7 @@
 /*   By: hsybassi <hsybassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 21:17:32 by hsybassi          #+#    #+#             */
-/*   Updated: 2021/10/26 18:45:51 by hsybassi         ###   ########.fr       */
+/*   Updated: 2021/10/26 18:50:36 by hsybassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	size;
 
-	s_len = 0;
 	if (!s)
 		return (NULL);
 	size = ft_strlen(s);
