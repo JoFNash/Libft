@@ -6,7 +6,7 @@
 /*   By: hsybassi <hsybassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 17:18:34 by hsybassi          #+#    #+#             */
-/*   Updated: 2021/10/22 17:57:24 by hsybassi         ###   ########.fr       */
+/*   Updated: 2021/10/27 17:57:47 by hsybassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,9 @@ static size_t	count_end_char(const char *s1, const char *set)
 	i = len_s1 - 1;
 	if (check_char_in_s(s1[i], set) == 1)
 	{
-		while (check_char_in_s(s1[i], set) == 1)
+		if (i == 0 && check_char_in_s(s1[i], set) == 1)
+			return (count + 1);
+		while (check_char_in_s(s1[i], set) == 1 && i != 0)
 		{
 			count++;
 			i--;

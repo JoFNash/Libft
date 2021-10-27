@@ -6,7 +6,7 @@
 /*   By: hsybassi <hsybassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 17:17:54 by hsybassi          #+#    #+#             */
-/*   Updated: 2021/10/22 18:00:47 by hsybassi         ###   ########.fr       */
+/*   Updated: 2021/10/27 17:58:05 by hsybassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,16 @@ static int	get_num_words(char const *s, char c)
 	i = 0;
 	if (s[0] != c)
 		++words;
-	while (s[i + 1] != '\0' && i < ft_strlen(s) - 1)
+	if (ft_strlen(s) != 0)
 	{
-		if (s[i] == c && s[i + 1] != c)
+		while (i < ft_strlen(s) - 1 && s[i + 1] != '\0')
 		{
-			++words;
+			if (s[i] == c && s[i + 1] != c)
+			{
+				++words;
+			}
+			i++;
 		}
-		i++;
 	}
 	return (words);
 }
