@@ -1,4 +1,4 @@
-HEADER		= libft.h
+HiADER		= libft.h
 
 NAME		= libft.a
 
@@ -61,10 +61,6 @@ CFLAGS 		= -Wall -Wextra -Werror
 
 $(NAME): 	$(OBJS) $(HEADER)
 			ar rc $(NAME) $(OBJS)
-
-so:
-			$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-			gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 all:		$(NAME)
 
